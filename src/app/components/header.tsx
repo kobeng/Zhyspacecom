@@ -2,15 +2,37 @@ import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from './ui/button';
 
-export function Header() {
+interface HeaderProps {
+  currentPage?: 'home' | 'about';
+  onNavigate?: (page: 'home' | 'about') => void;
+}
+
+export function Header({ currentPage = 'home', onNavigate }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const handleNavClick = (page: 'home' | 'about', href?: string) => {
+    if (page === 'about') {
+      onNavigate?.('about');
+      setMobileMenuOpen(false);
+    } else if (page === 'home' && href) {
+      onNavigate?.('home');
+      setMobileMenuOpen(false);
+      // Small delay to ensure page switches before scrolling
+      setTimeout(() => {
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  };
+
   const navItems = [
-    { label: '首页', href: '#home' },
-    { label: '核心材料', href: '#materials' },
-    { label: '应用案例', href: '#cases' },
-    { label: '关于我们', href: '#about' },
-    { label: '联系我们', href: '#contact' },
+    { label: '首页', href: '#home', page: 'home' as const },
+    { label: '核心材料', href: '#materials', page: 'home' as const },
+    { label: '应用案例', href: '#cases', page: 'home' as const },
+    { label: '关于我们', href: '#about', page: 'about' as const },
+    { label: '联系我们', href: '#contact', page: 'home' as const },
   ];
 
   return (
@@ -18,7 +40,10 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center gap-2">
+          <div
+            className="flex items-center gap-2 cursor-pointer"
+            onClick={() => handleNavClick('home', '#home')}
+          >
             <div className="w-10 h-10 bg-blue-600 rounded flex items-center justify-center">
               <span className="text-white font-bold">AM</span>
             </div>
@@ -31,6 +56,10 @@ export function Header() {
               <a
                 key={item.label}
                 href={item.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick(item.page, item.href);
+                }}
                 className="text-gray-700 hover:text-blue-600 transition-colors"
               >
                 {item.label}
@@ -40,7 +69,10 @@ export function Header() {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button className="bg-blue-600 hover:bg-blue-700">
+            <Button
+              className="bg-blue-600 hover:bg-blue-700"
+              onClick={() => handleNavClick('home', '#contact')}
+            >
               获取方案
             </Button>
           </div>
@@ -62,13 +94,19 @@ export function Header() {
                 <a
                   key={item.label}
                   href={item.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(item.page, item.href);
+                  }}
                   className="text-gray-700 hover:text-blue-600 transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.label}
                 </a>
               ))}
-              <Button className="bg-blue-600 hover:bg-blue-700 w-full mt-2">
+              <Button
+                className="bg-blue-600 hover:bg-blue-700 w-full mt-2"
+                onClick={() => handleNavClick('home', '#contact')}
+              >
                 获取方案
               </Button>
             </nav>
