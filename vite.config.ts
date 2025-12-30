@@ -16,4 +16,10 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  // 配置预览服务器，支持 SPA 路由
+  preview: {
+    port: 4173,
+    strictPort: false,
+    open: true,
+  },
 })

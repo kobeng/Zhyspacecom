@@ -5,7 +5,7 @@ export function HeroSection() {
 
   useEffect(() => {
     // 目标时间：2026年1月1日 08:58:00 (上海时区 UTC+8)
-    const targetDate = new Date('2026-01-01T08:58:00+08:00');
+    const targetDate = new Date('2025-01-01T08:58:00+08:00');
     const currentDate = new Date();
 
     // 判断当前时间是否大于等于目标时间
