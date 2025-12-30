@@ -141,19 +141,6 @@ export function ContactSection() {
                 })}
               </div>
             </div>
-
-            {/* Baidu Map */}
-            <div className="rounded-2xl overflow-hidden shadow-lg">
-              <iframe
-                src="http://api.map.baidu.com/marker?content=广州市越秀区应元路32号&output=html&src=webapp.baidu.openAPIdemo"
-                width="100%"
-                height="100%"
-                frameBorder="0"
-                className="border-0 aspect-video"
-                title="公司位置 - 百度地图"
-                loading="lazy"
-              />
-            </div>
           </div>
         </div>
       </div>
