@@ -2,6 +2,10 @@ import { Layers, Zap, Shield, Flame, Wind, Sparkles } from 'lucide-react';
 import { Card } from './ui/card';
 
 export function MaterialsSection() {
+  // 暂时注释掉核心材料部分
+  return null;
+  
+  /* 
   const materials = [
     {
       icon: Layers,
@@ -97,4 +101,5 @@ export function MaterialsSection() {
       </div>
     </section>
   );
+  */
 }

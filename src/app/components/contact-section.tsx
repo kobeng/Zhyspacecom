@@ -8,20 +8,20 @@ export function ContactSection() {
     {
       icon: Phone,
       title: '联系电话',
-      content: '+86 10 8888 8888',
+      content: '+86 020 83552227',
       subContent: '工作日 9:00-18:00',
     },
     {
       icon: Mail,
       title: '电子邮箱',
-      content: 'info@aerospace-materials.com',
+      content: '',
       subContent: '24小时在线',
     },
     {
       icon: MapPin,
       title: '公司地址',
-      content: '北京市海淀区中关村科技园',
-      subContent: '航空材料产业基地A座',
+      content: '广州市越秀区应元路32号',
+      subContent: '欢迎莅临指导',
     },
   ];
 
@@ -142,12 +142,17 @@ export function ContactSection() {
               </div>
             </div>
 
-            {/* Map Placeholder */}
-            <div className="bg-gray-200 rounded-2xl aspect-video flex items-center justify-center">
-              <div className="text-center text-gray-500">
-                <MapPin size={48} className="mx-auto mb-2 opacity-50" />
-                <p>地图位置</p>
-              </div>
+            {/* Baidu Map */}
+            <div className="rounded-2xl overflow-hidden shadow-lg">
+              <iframe
+                src="http://api.map.baidu.com/marker?content=广州市越秀区应元路32号&output=html&src=webapp.baidu.openAPIdemo"
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                className="border-0 aspect-video"
+                title="公司位置 - 百度地图"
+                loading="lazy"
+              />
             </div>
           </div>
         </div>

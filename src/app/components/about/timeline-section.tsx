@@ -3,7 +3,7 @@ export function TimelineSection() {
     {
       year: '2014',
       title: '公司成立',
-      description: '航天材料科技有限公司在北京中关村科技园正式成立，初创团队20人，专注碳纤维复合材料研发。',
+      description: '中恒源航天科技(广州)有限公司在北京中关村科技园正式成立，初创团队20人，专注碳纤维复合材料研发。',
     },
     {
       year: '2015',

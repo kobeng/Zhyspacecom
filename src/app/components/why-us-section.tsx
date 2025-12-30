@@ -40,7 +40,7 @@ export function WhyUsSection() {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl text-gray-900 mb-4">
-            为什么选择ABCA公司？
+            为什么选择中恒源航天科技(广州)有限公司？
           </h2>
           <p className="text-gray-600 max-w-3xl mx-auto">
             深厚的技术积累、专业的服务团队、持续的创新能力，让我们成为值得信赖的合作伙伴
